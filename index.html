@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTOJOD - Smart Parking Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066CC',
+                        secondary: '#42A5F5',
+                        success: '#36B37E',
+                        warning: '#FFAB00',
+                        danger: '#FF5630',
+                        light: '#F4F5F7',
+                        dark: '#262626',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans Thai"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .gradient-text {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                background-image: linear-gradient(to right, #0066CC, #42A5F5);
+            }
+            .card-shadow {
+                box-shadow: 0 10px 30px rgba(0, 102, 204, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-white">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <span class="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center text-xl font-bold">P</span>
+                <span class="text-xl font-bold text-primary">AUTOJOD</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="font-medium hover:text-primary transition-colors">หน้าแรก</a>
+                <a href="#about" class="font-medium hover:text-primary transition-colors">เกี่ยวกับเรา</a>
+                <a href="#process" class="font-medium hover:text-primary transition-colors">ขั้นตอนพัฒนา</a>
+                <a href="#features" class="font-medium hover:text-primary transition-colors">คุณสมบัติ</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-colors">ติดต่อเรา</a>
+                <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg transition-all transform hover:scale-105">
+                    ดาวน์โหลดแอป
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-dark text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-primary/5 to-secondary/10 py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight">
+                        ค้นหาที่จอดง่ายขึ้น <br>
+                        <span class="gradient-text">ลดเวลาวนรถ</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        ระบบอัจฉริยะช่วยค้นหาและจองที่จอดรถล่วงหน้า แสดงสถานะที่จอดว่างแบบเรียลไทม์ ผ่านแผนที่บนมือถือ ลดเวลาค้นหา ลดความวุ่นวาย ให้การเดินทางสะดวกสบาย
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all transform hover:scale-105 shadow-lg shadow-primary/20">
+                            <i class="fa fa-map-marker mr-2"></i> ค้นหาที่จอดเลย
+                        </button>
+                        <a href="#about" class="bg-white border border-gray-200 hover:bg-gray-50 px-8 py-3 rounded-lg text-lg font-medium transition-all">
+                            <i class="fa fa-info-circle mr-2"></i> เรียนรู้เพิ่ม
+                        </a>
+                    </div>
+                    <div class="flex gap-8 pt-4">
+                        <div>
+                            <p class="text-3xl font-bold text-primary">80%</p>
+                            <p class="text-gray-500">ความพึงพอใจผู้ใช้</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-success">4.6/5</p>
+                            <p class="text-gray-500">คะแนนจากผู้ใช้</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-warning">5 นาที</p>
+                            <p class="text-gray-500">เวลาค้นหาเฉลี่ย</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-2xl p-4 transform rotate-2 absolute -right-4 top-1/4 w-3/4 h-3/4 -z-10"></div>
+                    <img src="https://picsum.photos/id/1031/800/600" alt="แอป AUTOJOD แสดงแผนที่ที่จอดรถ" class="rounded-2xl shadow-2xl w-full object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-success/10 p-2 rounded-lg text-success">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">พบที่จอดว่างแล้ว!</p>
+                                <p class="text-sm text-gray-500">สวนสาธารณะหาดใหญ่ · 150 ม.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="about" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">ปัญหาที่เราแก้ไข</h2>
+                <p class="text-lg text-gray-600">ทุกวันมีคนจำนวนมากประสบปัญหาหาที่จอดรถยาก เสียเวลาวนไปมาโดยไม่จำเป็น เราจึงสร้างทางออกนี้ขึ้นมา</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl card-shadow">
+                    <div class="w-14 h-14 bg-danger/10 rounded-lg flex items-center justify-center text-danger text-2xl mb-4">
+                        <i class="fa fa-car"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">เสียเวลาค้นหา</h3>
+                    <p class="text-gray-600 mb-4">ผู้ใช้เสียเวลาเฉลี่ย 15-20 นาทีต่อครั้ง เพื่อค้นหาที่จอดรถในรัศมีเฉลี่ย 500 เมตร</p>
+                    <p class="font-bold text-danger">72% เจอปัญหานี้เป็นประจำ</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl card-shadow">
+                    <div class="w-14 h-14 bg-warning/10 rounded-lg flex items-center justify-center text-warning text-2xl mb-4">
+                        <i class="fa fa-question-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">ไม่รู้สถานะที่จอด</h3>
+                    <p class="text-gray-600 mb-4">ไม่ทราบว่าจุดใดมีที่จอดว่าง ต้องขับรถวนไปมา ทำให้เสียเวลาและน้ำมันเชื้อเพลิง</p>
+                    <p class="font-bold text-warning">ข้อมูลไม่อัปเดตแบบเรียลไทม์</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl card-shadow">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary text-2xl mb-4">
+                        <i class="fa fa-map-o"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">ไม่มีระบบชี้เป้า</h3>
+                    <p class="text-gray-600 mb-4">ไม่มีแพลตฟอร์มกลางที่รวบรวมข้อมูลที่จอดรถทุกแห่งไว้ด้วยกัน ทำให้วางแผนการเดินทางยาก</p>
+                    <p class="font-bold text-primary">ไม่มีระบบจองล่วงหน้า</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">ขั้นตอนพัฒนาระบบ</h2>
+                <p class="text-lg text-gray-600">เราใช้กระบวนการคิดเชิงออกแบบ (Design Thinking) 5 ขั้นตอน ในการสร้างระบบที่ตอบโจทย์ผู้ใช้จริงที่สุด</p>
+            </div>
+
+            <div class="relative">
+                <!-- Progress Line -->
+                <div class="hidden md:block absolute top-24 left-0 w-full h-1 bg-gray-100 z-0">
+                    <div class="h-full bg-primary w-4/5"></div>
+                </div>
+
+                <div class="grid md:grid-cols-5 gap-6 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-[#4285F4] card-shadow">
+                        <div class="w-12 h-12 bg-[#4285F4] text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">1</div>
+                        <h3 class="font-bold text-lg mb-2">เข้าใจผู้ใช้</h3>
+                        <p class="text-gray-600 text-sm">สำรวจ สัมภาษณ์ และทำความเข้าใจปัญหาที่แท้จริงของผู้ขับขี่</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-[#34A853] card-shadow">
+                        <div class="w-12 h-12 bg-[#34A853] text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
+                        <h3 class="font-bold text-lg mb-2">กำหนดปัญหา</h3>
+                        <p class="text-gray-600 text-sm">ระบุประเด็นหลัก: "ผู้ใช้ไม่ทราบว่าที่จอดว่างที่ตรงไหน"</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-[#FBBC05] card-shadow">
+                        <div class="w-12 h-12 bg-[#FBBC05] text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
+                        <h3 class="font-bold text-lg mb-2">ระดมความคิด</h3>
+                        <p class="text-gray-600 text-sm">คิดค้นวิธีแก้ไข สร้างแนวทางต่างๆ เพื่อเลือกสิ่งที่ดีที่สุด</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-[#EA4335] card-shadow">
+                        <div class="w-12 h-12 bg-[#EA4335] text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">4</div>
+                        <h3 class="font-bold text-lg mb-2">สร้างต้นแบบ</h3>
+                        <p class="text-gray-600 text-sm">ออกแบบหน้าจอแอปและแผนที่นำทาง จัดทำระบบทำงานจริง</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-[#9C27B0] card-shadow">
+                        <div class="w-12 h-12 bg-[#9C27B0] text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">5</div>
+                        <h3 class="font-bold text-lg mb-2">ทดสอบปรับปรุง</h3>
+                        <p class="text-gray-600 text-sm">ให้ผู้ใช้จริงทดลองใช้ รับฟังความคิดเห็น ปรับปรุงระบบให้ดียิ่งขึ้น</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6">คุณสมบัติหลักของระบบ</h2>
+                    <p class="text-lg text-gray-600 mb-8">AUTOJOD มาพร้อมฟีเจอร์ครบครัน เพื่อให้การค้นหาที่จอดรถเป็นเรื่องง่ายและรวดเร็วที่สุด</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">แผนที่อัจฉริยะ</h3>
+                                <p class="text-gray-600">แสดงที่จอดว่างแบบเรียลไทม์ ระบุตำแหน่งชัดเจน พร้อมระบบนำทาง</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="shrink-0 w-10 h-10 bg-success/10 rounded-lg flex items-center justify-center text-success">
+                                <i class="fa fa-mobile-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">รองรับทุกอุปกรณ์</h3>
+                                <p class="text-gray-600">ใช้งานผ่านเว็บไซต์ และแอปพลิเคชันมือถือ Android และ iOS ได้ทุกที่ทุกเวลา</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="shrink-0 w-10 h-10 bg-warning/10 rounded-lg flex items-center justify-center text-warning">
+                                <i class="fa fa-calendar-check-o"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">จองที่จอดล่วงหน้า</h3>
+                                <p class="text-gray-600">เลือกเวลา จองที่จอดล่วงหน้า มั่นใจได้ว่าถึงแล้วมีที่จอดแน่นอน</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="shrink-0 w-10 h-10 bg-danger/10 rounded-lg flex items-center justify-center text-danger">
+                                <i class="fa fa-bell"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">แจ้งเตือนอัจฉริยะ</h3>
+                                <p class="text-gray-600">ระบบแจ้งเตือนเมื่อใกล้ถึงเวลาจอง หรือเมื่อมีที่จอดใหม่ในพื้นที่ที่สนใจ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="bg-primary/5 rounded-2xl p-6">
+                        <img src="https://picsum.photos/id/1019/600/800" alt="ตัวอย่างหน้าจอแอป AUTOJOD" class="rounded-xl w-full shadow-lg">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg w-48">
+                            <p class="text-sm text-gray-500 mb-1">ลดเวลาค้นหา</p>
+                            <p class="text-2xl font-bold"><span class="text-gray-400 line-through">30 นาที</span> <span class="text-success">→ 5 นาที</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">ผลลัพธ์ที่ได้รับ</h2>
+                <p class="text-lg opacity-90">จากการทดสอบและพัฒนาระบบอย่างต่อเนื่อง</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="text-5xl font-bold mb-2">80%</div>
+                    <p class="text-lg">ความพึงพอใจจากผู้ใช้</p>
+                </div>
+
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="text-5xl font-bold mb-2">12+</div>
+                    <p class="text-lg">ครั้งของการทดสอบและปรับปรุง</p>
+                </div>
+
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="text-5xl font-bold mb-2">4.6/5</div>
+                    <p class="text-lg">คะแนนเฉลี่ยจากผู้ใช้จริง</p>
+                </div>
+            </div>
+
+            <div class="mt-12 grid md:grid-cols-2 gap-8">
+                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm flex gap-4 items-start">
+                    <div class="text-3xl"><i class="fa fa-leaf"></i></div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-2">เป็นมิตรกับสิ่งแวดล้อม</h3>
+                        <p class="opacity-90">ลดการปล่อยมลพิษจากรถยนต์ที่ต้องขับวนหาที่จอด ช่วยลดมลพิษในอากาศ</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm flex gap-4 items-start">
+                    <div class="text-3xl"><i class="fa fa-smile-o"></i></div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-2">สร้างความสุขในการเดินทาง</h3>
+                        <p class="opacity-90">หมดกังวลเรื่องที่จอดรถ วางแผนการเดินทางได้มั่นใจขึ้น เพิ่มเวลาให้กับสิ่งที่สำคัญกว่า</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-white text-center">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">พร้อมใช้งานแล้ววันนี้!</h2>
+                <p class="text-lg opacity-90 max-w-2xl mx-auto mb-8">ดาวน์โหลดแอป AUTOJOD หรือใช้งานผ่านเว็บไซต์ เริ่มต้นประสบการณ์การหาที่จอดรถที่ง่ายกว่าที่เคย</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-medium transition-all transform hover:scale-105">
+                        <i class="fa fa-globe mr-2"></i> ใช้งานผ่านเว็บ
+                    </button>
+                    <button class="bg-dark hover:bg-dark/90 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all transform hover:scale-105">
+                        <i class="fa fa-android mr-2"></i> ดาวน์โหลดแอป
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center text-xl font-bold">P</span>
+                        <span class="text-xl font-bold">AUTOJOD</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">ระบบค้นหาที่จอดรถอัจฉริยะ ที่จะช่วยให้การเดินทางของคุณง่ายขึ้น ประหยัดเวลา และลดความวุ่นวาย</p>
+                    <div class="flex gap-4 text-xl">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa fa-facebook-square"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa fa-line"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">ลิงก์ด่วน</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">หน้าแรก</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">เกี่ยวกับโครงการ</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">คุณสมบัติ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">คู่มือการใช้งาน</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">ติดต่อเรา</h3>
+                    <ul class="space-y-2">
+                        <li class="flex gap-2 text-gray-400">
+                            <i class="fa fa-map-marker shrink-0 mt-1"></i>
+                            <span>อำเภอหาดใหญ่ จังหวัดสงขลา</span>
+                        </li>
+                        <li class="flex gap-2 text-gray-400">
+                            <i class="fa fa-envelope shrink-0 mt-1"></i>
+                            <span>contact@autojod.com</span>
+                        </li>
+                        <li class="flex gap-2 text-gray-400">
+                            <i class="fa fa-phone shrink-0 mt-1"></i>
+                            <span>0xx-xxx-xxxx</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>© 2026 AUTOJOD - Smart Parking Solution. สร้างด้วยความมุ่งมั่นเพื่อทุกการเดินทาง</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
